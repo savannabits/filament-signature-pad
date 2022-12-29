@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "savannabits/filament-signature-pad",
+    "description": "Signature Pad Field for Filamentphp Forms",
     "keywords": [
-        ":vendor_name",
+        "savannabits",
         "laravel",
-        ":package_slug"
+        "filament-signature-pad"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/savannabits/filament-signature-pad",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Sam Maosa",
+            "email": "maosa.sam@gmail.com",
             "role": "Developer"
         }
     ],
@@ -38,13 +38,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Savannabits\\SignaturePad\\": "src",
+            "Savannabits\\SignaturePad\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Savannabits\\SignaturePad\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -67,10 +67,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Savannabits\\SignaturePad\\SignaturePadServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "SignaturePad": "Savannabits\\SignaturePad\\Facades\\SignaturePad"
             }
         }
     },
