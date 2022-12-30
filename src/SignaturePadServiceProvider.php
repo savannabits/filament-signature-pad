@@ -26,12 +26,12 @@ class SignaturePadServiceProvider extends PluginServiceProvider
     ];
 
     protected array $scripts = [
-//        'plugin-filament-signature-pad' => __DIR__.'/../resources/dist/filament-signature-pad.js',
+        //        'plugin-filament-signature-pad' => __DIR__.'/../resources/dist/filament-signature-pad.js',
     ];
 
-     protected array $beforeCoreScripts = [
-         'plugin-filament-signature-pad' => __DIR__ . '/../resources/dist/filament-signature-pad.js',
-     ];
+    protected array $beforeCoreScripts = [
+        'plugin-filament-signature-pad' => __DIR__.'/../resources/dist/filament-signature-pad.js',
+    ];
 
     public function configurePackage(Package $package): void
     {
