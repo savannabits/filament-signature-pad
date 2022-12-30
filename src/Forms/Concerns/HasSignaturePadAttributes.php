@@ -15,7 +15,7 @@ trait HasSignaturePadAttributes
 
     /**
      * @param Closure|float $strokeMaxWidth
-     * @return HasSignaturePadAttributes
+     * @return static
      */
     public function strokeMaxWidth(float|Closure $strokeMaxWidth): static
     {
@@ -25,7 +25,7 @@ trait HasSignaturePadAttributes
 
     /**
      * @param Closure|float $strokeMinWidth
-     * @return HasSignaturePadAttributes
+     * @return static
      */
     public function strokeMinWidth(float|Closure $strokeMinWidth): static
     {
@@ -35,7 +35,7 @@ trait HasSignaturePadAttributes
 
     /**
      * @param Closure|float $strokeDotSize
-     * @return HasSignaturePadAttributes
+     * @return static
      */
     public function strokeDotSize(float|Closure $strokeDotSize): static
     {
@@ -45,7 +45,7 @@ trait HasSignaturePadAttributes
 
     /**
      * @param Closure|float $strokeMinDistance
-     * @return HasSignaturePadAttributes
+     * @return static
      */
     public function strokeMinDistance(float|Closure $strokeMinDistance): static
     {
@@ -55,7 +55,7 @@ trait HasSignaturePadAttributes
 
     /**
      * @param Closure|string $penColor
-     * @return HasSignaturePadAttributes
+     * @return static
      */
     public function penColor(string|Closure $penColor): static
     {
@@ -65,7 +65,7 @@ trait HasSignaturePadAttributes
 
     /**
      * @param Closure|string $backgroundColor
-     * @return HasSignaturePadAttributes
+     * @return static
      */
     public function backgroundColor(string|Closure $backgroundColor): static
     {
