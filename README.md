@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/savannabits/filament-signature-pad.svg?style=flat-square)](https://packagist.org/packages/savannabits/filament-signature-pad)
 
 
-
+![img.png](img.png)
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
 ## Installation
@@ -17,38 +17,40 @@ You can install the package via composer:
 composer require savannabits/filament-signature-pad
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="filament-signature-pad-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="filament-signature-pad-config"
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="filament-signature-pad-views"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
 ## Usage
 
+You can now use the SignaturePad field in your form builder. 
 ```php
-$filament-signature-pad = new Savannabits\SignaturePad();
-echo $filament-signature-pad->echoPhrase('Hello, Savannabits!');
+    use Savannabits\SignaturePad\Forms\Components\Fields\SignaturePad;
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                // ... Other fields
+                SignaturePad::make('signature'), // Chain your field modifiers here
+                // Other fields
+            ]);
+    }
 ```
+You can also set the Signature Pad Options as shown below. [See SignaturePad Options Docs](https://github.com/szimek/signature_pad#options) for more details.
+```php
+    use Savannabits\SignaturePad\Forms\Components\Fields\SignaturePad;
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                // ... Other fields
+                SignaturePad::make('signature')
+                    ->strokeMinWidth(1.0)
+                    ->strokeMaxWidth(2.5)
+                    ->strokeDotSize(2.0)
+                    ->penColor('rgb(0,0,255)') // Blue
+                    ->backgroundColor('rgba(0,0,0,0)'), // Black Transparent
+                // Other fields
+            ]);
+    }
+```
+![img_1.png](img_1.png)
 
 ## Testing
 
