@@ -7,7 +7,8 @@
 
 
 ![img.png](img.png)
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+
+A Signature Pad Field for the FilamentPHP Form Builder using [szimek/signature_pad](https://github.com/szimek/signature_pad)
 
 ## Installation
 
@@ -51,6 +52,8 @@ You can also set the Signature Pad Options as shown below. [See SignaturePad Opt
     }
 ```
 ![img_1.png](img_1.png)
+
+Upon Saving, the signature image is saved to the database as a png data url. Plans are underway to also support uploading the signature to the server as an image blob file.
 
 ## Testing
 
