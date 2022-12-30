@@ -20,7 +20,6 @@ test('can set signature pad dot size', function () {
         ->toBe(3.5);
 });
 
-
 test('can set signature pad stroke maximum width', function () {
     expect(\Savannabits\SignaturePad\Forms\Components\Fields\SignaturePad::make('signature')
         ->strokeMaxWidth(3.5)
@@ -43,8 +42,3 @@ test('can set signature pad background color', function () {
         ->backgroundColor('rgba(255,280,200,0)')
         ->getBackgroundColor())->toBe('rgba(255,280,200,0)');
 });
-
-
-
-
-
