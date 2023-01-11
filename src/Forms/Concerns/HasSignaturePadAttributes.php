@@ -145,4 +145,14 @@ trait HasSignaturePadAttributes
     {
         return $this->evaluate($this->backgroundColor);
     }
+    
+    /**
+     * @return bool
+     */
+    public function isDisabledDownload(): bool
+    {
+        return $this->hideDownloadButtons;
+    }
+    
+    
 }
