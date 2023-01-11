@@ -17,6 +17,20 @@ trait HasSignaturePadAttributes
     protected string|Closure|null $penColor = 'rgb(0,0,0)';
 
     protected string|Closure|null $backgroundColor = 'rgba(0,0,0,0)';
+    
+    protected bool $hideDownloadButtons = false;
+    
+    
+    /**
+     * @param  bool $hide = true
+     * @return static
+     */
+    public function hideDownloadButtons(bool $hide = true): static
+    {
+        $this->hideDownloadButtons = $hide;
+
+        return $this;
+    }
 
     /**
      * @param  Closure|float  $strokeMaxWidth
