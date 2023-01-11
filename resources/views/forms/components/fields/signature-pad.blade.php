@@ -29,9 +29,11 @@
 
             <div class="flex mt-2 justify-end space-x-2">
                 <x-filament::button color="danger"  outlined="true" size="sm" @click.prevent="clear()">Clear</x-filament::button>
-                <x-filament::button color="primary" outlined="true" size="sm" icon="heroicon-o-download" @click.prevent="downloadSVG()">.svg</x-filament::button>
-                <x-filament::button color="primary" outlined="true" size="sm" icon="heroicon-o-download" @click.prevent="downloadPNG()">.png</x-filament::button>
-                <x-filament::button color="primary" outlined="true" size="sm" icon="heroicon-o-download" @click.prevent="downloadJPG()">.jpg</x-filament::button>
+                @if(!$isDownloadDisabled())
+                    <x-filament::button color="primary" outlined="true" size="sm" icon="heroicon-o-download" @click.prevent="downloadSVG()">.svg</x-filament::button>
+                    <x-filament::button color="primary" outlined="true" size="sm" icon="heroicon-o-download" @click.prevent="downloadPNG()">.png</x-filament::button>
+                    <x-filament::button color="primary" outlined="true" size="sm" icon="heroicon-o-download" @click.prevent="downloadJPG()">.jpg</x-filament::button>
+                @endif
             </div>
         @endif
     </div>
