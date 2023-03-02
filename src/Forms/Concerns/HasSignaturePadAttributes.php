@@ -22,7 +22,6 @@ trait HasSignaturePadAttributes
 
     /**
      * @param  bool  $hide = true
-     * @return static
      */
     public function hideDownloadButtons(bool $hide = true): static
     {
@@ -31,10 +30,6 @@ trait HasSignaturePadAttributes
         return $this;
     }
 
-    /**
-     * @param  Closure|float  $strokeMaxWidth
-     * @return static
-     */
     public function strokeMaxWidth(float|Closure $strokeMaxWidth): static
     {
         $this->strokeMaxWidth = $strokeMaxWidth;
@@ -42,10 +37,6 @@ trait HasSignaturePadAttributes
         return $this;
     }
 
-    /**
-     * @param  Closure|float  $strokeMinWidth
-     * @return static
-     */
     public function strokeMinWidth(float|Closure $strokeMinWidth): static
     {
         $this->strokeMinWidth = $strokeMinWidth;
@@ -53,10 +44,6 @@ trait HasSignaturePadAttributes
         return $this;
     }
 
-    /**
-     * @param  Closure|float  $strokeDotSize
-     * @return static
-     */
     public function strokeDotSize(float|Closure $strokeDotSize): static
     {
         $this->strokeDotSize = $strokeDotSize;
@@ -64,10 +51,6 @@ trait HasSignaturePadAttributes
         return $this;
     }
 
-    /**
-     * @param  Closure|float  $strokeMinDistance
-     * @return static
-     */
     public function strokeMinDistance(float|Closure $strokeMinDistance): static
     {
         $this->strokeMinDistance = $strokeMinDistance;
@@ -75,10 +58,6 @@ trait HasSignaturePadAttributes
         return $this;
     }
 
-    /**
-     * @param  Closure|string  $penColor
-     * @return static
-     */
     public function penColor(string|Closure $penColor): static
     {
         $this->penColor = $penColor;
@@ -86,10 +65,6 @@ trait HasSignaturePadAttributes
         return $this;
     }
 
-    /**
-     * @param  Closure|string  $backgroundColor
-     * @return static
-     */
     public function backgroundColor(string|Closure $backgroundColor): static
     {
         $this->backgroundColor = $backgroundColor;
@@ -97,57 +72,36 @@ trait HasSignaturePadAttributes
         return $this;
     }
 
-    /**
-     * @return float|null
-     */
     public function getStrokeMaxWidth(): ?float
     {
         return $this->evaluate($this->strokeMaxWidth);
     }
 
-    /**
-     * @return float|null
-     */
     public function getStrokeMinWidth(): ?float
     {
         return $this->evaluate($this->strokeMinWidth);
     }
 
-    /**
-     * @return float|null
-     */
     public function getStrokeDotSize(): ?float
     {
         return $this->evaluate($this->strokeDotSize);
     }
 
-    /**
-     * @return float|null
-     */
     public function getStrokeMinDistance(): ?float
     {
         return $this->evaluate($this->strokeMinDistance);
     }
 
-    /**
-     * @return string|null
-     */
     public function getPenColor(): string|null
     {
         return $this->evaluate($this->penColor);
     }
 
-    /**
-     * @return string|null
-     */
     public function getBackgroundColor(): ?string
     {
         return $this->evaluate($this->backgroundColor);
     }
 
-    /**
-     * @return bool
-     */
     public function isDisabledDownload(): bool
     {
         return $this->hideDownloadButtons;
