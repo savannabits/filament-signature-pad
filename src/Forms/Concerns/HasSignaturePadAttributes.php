@@ -92,7 +92,7 @@ trait HasSignaturePadAttributes
         return $this->evaluate($this->strokeMinDistance);
     }
 
-    public function getPenColor(): string|null
+    public function getPenColor(): ?string
     {
         return $this->evaluate($this->penColor);
     }
