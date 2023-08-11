@@ -2,8 +2,8 @@
 
 namespace Coolsam\SignaturePad\Forms\Components\Fields;
 
-use Filament\Forms\Components\Field;
 use Coolsam\SignaturePad\Forms\Concerns;
+use Filament\Forms\Components\Field;
 
 class SignaturePad extends Field
 {

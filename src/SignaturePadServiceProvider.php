@@ -2,20 +2,19 @@
 
 namespace Coolsam\SignaturePad;
 
+use Coolsam\SignaturePad\Commands\SignaturePadCommand;
+use Coolsam\SignaturePad\Testing\TestsSignaturePad;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
-use Filament\Support\Icons\IconManager;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Testing\TestableLivewire;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Coolsam\SignaturePad\Commands\SignaturePadCommand;
-use Coolsam\SignaturePad\Testing\TestsSignaturePad;
 
 class SignaturePadServiceProvider extends PackageServiceProvider
 {
@@ -103,9 +102,9 @@ class SignaturePadServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-             AlpineComponent::make('signature-pad', __DIR__ . '/../resources/dist/components/signature-pad.js'),
+            AlpineComponent::make('signature-pad', __DIR__ . '/../resources/dist/components/signature-pad.js'),
             Css::make('signature-pad-styles', __DIR__ . '/../resources/dist/signature-pad.css'),
-//            Js::make('signature-pad-scripts', __DIR__ . '/../resources/dist/signature-pad.js'),
+            //            Js::make('signature-pad-scripts', __DIR__ . '/../resources/dist/signature-pad.js'),
         ];
     }
 
@@ -118,6 +117,7 @@ class SignaturePadServiceProvider extends PackageServiceProvider
             SignaturePadCommand::class,
         ];
     }
+
     protected function getIcons(): array
     {
         return [];
