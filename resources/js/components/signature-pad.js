@@ -24,7 +24,7 @@ export default function signaturePad(args) {
                 maxWidth: this.maxWidth || 2.5,
                 minDistance: this.minDistance || 2,
                 penColor: this.penColor || 'rgb(0,0,0)',
-                backgroundColor: this.backgroundColor || 'rgba(0,0,0,0)'
+                backgroundColor: this.backgroundColor || 'rgba(255,255,255,0)'
             });
             window.addEventListener('resize', e => this.resizeCanvas())
             this.resizeCanvas();

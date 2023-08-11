@@ -5,9 +5,9 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/savannabits/filament-signature-pad/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/coolsam/signature-pad/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/coolsam/signature-pad.svg?style=flat-square)](https://packagist.org/packages/coolsam/signature-pad)
 
+A Signature pad field for FilamentPHP based on [szimek/signature_pad](https://github.com/szimek/signature_pad).
 
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+__NOTE: This documentation is for `^v2.0` which only supports FilamentPHP `^3.0`. If you are using `Filament 2.x`, you should use `SignaturePad v1.x`. [See the docs here](https://github.com/savannabits/filament-signature-pad/tree/1.x#readme)__
 
 ## Installation
 
@@ -17,11 +17,15 @@ You can install the package via composer:
 composer require coolsam/signature-pad
 ```
 
-You can publish and run the migrations with:
+Next, Publish filament's assets to ensure the plugin's assets are published to the public directory.
+```bash
+php artisan filament:assets
+```
+
+You may also publish the package's translations using:
 
 ```bash
-php artisan vendor:publish --tag="signature-pad-migrations"
-php artisan migrate
+php artisan vendor:publish --tag="signature-pad-translations"
 ```
 
 You can publish the config file with:
@@ -30,25 +34,25 @@ You can publish the config file with:
 php artisan vendor:publish --tag="signature-pad-config"
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="signature-pad-views"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
 ## Usage
+Use it in your Filament Forms as follows:
 
 ```php
-$signaturePad = new Coolsam\SignaturePad();
-echo $signaturePad->echoPhrase('Hello, Coolsam!');
+use Coolsam\SignaturePad\Forms\Components\Fields\SignaturePad;
+
+SignaturePad::make('my_signature'),
+
+// Other methods
+SignaturePad::make('signature')
+    ->backgroundColor('white') // Set the background color in case you want to download to jpeg
+    ->penColor('blue') // Set the pen color
+    ->strokeMinDistance(2.0) // set the minimum stroke distance (the default works fine)
+    ->strokeMaxWidth(2.5) // set the max width of the pen stroke
+    ->strokeMinWidth(1.0) // set the minimum width of the pen stroke
+    ->strokeDotSize(2.0) // set the stroke dot size.
+    ->hideDownloadButtons() // In case you don't want to show the download buttons on the pad, you can hide them by setting this option.
 ```
+That's it! Enjoy composing beautiful signatures.
 
 ## Testing
 
