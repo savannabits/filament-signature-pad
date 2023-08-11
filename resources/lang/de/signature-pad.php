@@ -2,5 +2,5 @@
 
 // translations for Coolsam/SignaturePad
 return [
-    'clear' => 'Signatur löschen'
+    'clear' => 'Signatur löschen',
 ];

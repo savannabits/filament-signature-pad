@@ -6,17 +6,17 @@ use Closure;
 
 trait HasSignaturePadAttributes
 {
-    protected float|Closure|null $strokeMaxWidth = 2.5;
+    protected float | Closure | null $strokeMaxWidth = 2.5;
 
-    protected float|Closure|null $strokeMinWidth = 1.0;
+    protected float | Closure | null $strokeMinWidth = 1.0;
 
-    protected float|Closure|null $strokeDotSize = 2.0;
+    protected float | Closure | null $strokeDotSize = 2.0;
 
-    protected float|Closure|null $strokeMinDistance = 2.0;
+    protected float | Closure | null $strokeMinDistance = 2.0;
 
-    protected string|Closure|null $penColor = 'rgb(0,0,0)';
+    protected string | Closure | null $penColor = 'rgb(0,0,0)';
 
-    protected string|Closure|null $backgroundColor = 'rgba(0,0,0,0)';
+    protected string | Closure | null $backgroundColor = 'rgba(0,0,0,0)';
 
     protected bool $hideDownloadButtons = false;
 
@@ -30,42 +30,42 @@ trait HasSignaturePadAttributes
         return $this;
     }
 
-    public function strokeMaxWidth(float|Closure $strokeMaxWidth): static
+    public function strokeMaxWidth(float | Closure $strokeMaxWidth): static
     {
         $this->strokeMaxWidth = $strokeMaxWidth;
 
         return $this;
     }
 
-    public function strokeMinWidth(float|Closure $strokeMinWidth): static
+    public function strokeMinWidth(float | Closure $strokeMinWidth): static
     {
         $this->strokeMinWidth = $strokeMinWidth;
 
         return $this;
     }
 
-    public function strokeDotSize(float|Closure $strokeDotSize): static
+    public function strokeDotSize(float | Closure $strokeDotSize): static
     {
         $this->strokeDotSize = $strokeDotSize;
 
         return $this;
     }
 
-    public function strokeMinDistance(float|Closure $strokeMinDistance): static
+    public function strokeMinDistance(float | Closure $strokeMinDistance): static
     {
         $this->strokeMinDistance = $strokeMinDistance;
 
         return $this;
     }
 
-    public function penColor(string|Closure $penColor): static
+    public function penColor(string | Closure $penColor): static
     {
         $this->penColor = $penColor;
 
         return $this;
     }
 
-    public function backgroundColor(string|Closure $backgroundColor): static
+    public function backgroundColor(string | Closure $backgroundColor): static
     {
         $this->backgroundColor = $backgroundColor;
 
