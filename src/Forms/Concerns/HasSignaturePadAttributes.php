@@ -16,7 +16,7 @@ trait HasSignaturePadAttributes
 
     protected string | Closure | null $penColor = 'rgb(0,0,0)';
 
-    protected string | Closure | null $backgroundColor = 'rgba(0,0,0,0)';
+    protected string | Closure | null $backgroundColor = 'rgba(255,255,255, 1)';
 
     protected bool $hideDownloadButtons = false;
 
