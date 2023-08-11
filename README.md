@@ -1,59 +1,54 @@
-# Signature Pad Field for Filamentphp Forms
+# Signature Pad for FilamentPHP
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/savannabits/filament-signature-pad.svg?style=flat-square)](https://packagist.org/packages/savannabits/filament-signature-pad)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/savannabits/filament-signature-pad/run-tests?label=tests)](https://github.com/savannabits/filament-signature-pad/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/savannabits/filament-signature-pad/Check%20&%20fix%20styling?label=code%20style)](https://github.com/savannabits/filament-signature-pad/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/savannabits/filament-signature-pad.svg?style=flat-square)](https://packagist.org/packages/savannabits/filament-signature-pad)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/coolsam/signature-pad.svg?style=flat-square)](https://packagist.org/packages/coolsam/signature-pad)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/savannabits/filament-signature-pad/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/savannabits/filament-signature-pad/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/savannabits/filament-signature-pad/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/coolsam/signature-pad/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/coolsam/signature-pad.svg?style=flat-square)](https://packagist.org/packages/coolsam/signature-pad)
 
 
-![img.png](img.png)
 
-A Signature Pad Field for the FilamentPHP Form Builder using [szimek/signature_pad](https://github.com/szimek/signature_pad)
+This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require savannabits/filament-signature-pad
+composer require coolsam/signature-pad
+```
+
+You can publish and run the migrations with:
+
+```bash
+php artisan vendor:publish --tag="signature-pad-migrations"
+php artisan migrate
+```
+
+You can publish the config file with:
+
+```bash
+php artisan vendor:publish --tag="signature-pad-config"
+```
+
+Optionally, you can publish the views using
+
+```bash
+php artisan vendor:publish --tag="signature-pad-views"
+```
+
+This is the contents of the published config file:
+
+```php
+return [
+];
 ```
 
 ## Usage
 
-You can now use the SignaturePad field in your form builder. 
 ```php
-    use Savannabits\SignaturePad\Forms\Components\Fields\SignaturePad;
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                // ... Other fields
-                SignaturePad::make('signature'), // Chain your field modifiers here
-                // Other fields
-            ]);
-    }
+$signaturePad = new Coolsam\SignaturePad();
+echo $signaturePad->echoPhrase('Hello, Coolsam!');
 ```
-You can also set the Signature Pad Options as shown below. [See SignaturePad Options Docs](https://github.com/szimek/signature_pad#options) for more details.
-```php
-    use Savannabits\SignaturePad\Forms\Components\Fields\SignaturePad;
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                // ... Other fields
-                SignaturePad::make('signature')
-                    ->strokeMinWidth(1.0)
-                    ->strokeMaxWidth(2.5)
-                    ->strokeDotSize(2.0)
-                    ->penColor('rgb(0,0,255)') // Blue
-                    ->backgroundColor('rgba(0,0,0,0)'), // Black Transparent
-                // Other fields
-            ]);
-    }
-```
-![img_1.png](img_1.png)
-
-Upon Saving, the signature image is saved to the database as a png data url. Plans are underway to also support uploading the signature to the server as an image blob file.
 
 ## Testing
 
@@ -75,7 +70,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Sam Maosa](https://github.com/savannabits)
+- [Sam Maosa](https://github.com/coolsam726)
 - [All Contributors](../../contributors)
 
 ## License
