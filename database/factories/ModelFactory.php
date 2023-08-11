@@ -1,6 +1,6 @@
 <?php
 
-namespace Savannabits\SignaturePad\Database\Factories;
+namespace Coolsam\SignaturePad\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

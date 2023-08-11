@@ -1,65 +1,65 @@
 {
-    "name": "savannabits/filament-signature-pad",
-    "description": "Signature Pad Field for Filamentphp Forms",
+    "name": "coolsam/signature-pad",
+    "description": "Signature Pad for FilamentPHP",
     "keywords": [
-        "savannabits",
+        "coolsam",
         "laravel",
-        "filament-signature-pad"
+        "signature-pad"
     ],
-    "homepage": "https://github.com/savannabits/filament-signature-pad",
+    "homepage": "https://github.com/coolsam/signature-pad",
+    "support": {
+        "issues": "https://github.com/coolsam/signature-pad/issues",
+        "source": "https://github.com/coolsam/signature-pad"
+    },
     "license": "MIT",
     "authors": [
         {
             "name": "Sam Maosa",
-            "email": "maosa.sam@gmail.com",
+            "email": "smaosa@savannabits.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0",
-        "filament/filament": "^2.0",
-        "spatie/laravel-package-tools": "^1.13.5",
-        "illuminate/contracts": "^9.0 | ^10.0"
+        "php": "^8.1",
+        "filament/forms": "^3.0",
+        "illuminate/contracts": "^10.0",
+        "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
+        "filament/filament": "^3.0",
         "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^6.0",
+        "nunomaduro/collision": "^7.9",
         "nunomaduro/larastan": "^2.0.1",
-        "orchestra/testbench": "^7.0",
-        "pestphp/pest": "^1.21",
-        "pestphp/pest-plugin-laravel": "^1.1",
-        "pestphp/pest-plugin-livewire": "^1.0",
-        "pestphp/pest-plugin-parallel": "^1.2",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-arch": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
-        "phpunit/phpunit": "^9.5",
         "spatie/laravel-ray": "^1.26"
     },
     "autoload": {
         "psr-4": {
-            "Savannabits\\SignaturePad\\": "src",
-            "Savannabits\\SignaturePad\\Database\\Factories\\": "database/factories"
+            "Coolsam\\SignaturePad\\": "src/",
+            "Coolsam\\SignaturePad\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Savannabits\\SignaturePad\\Tests\\": "tests"
+            "Coolsam\\SignaturePad\\Tests\\": "tests/"
         }
     },
     "scripts": {
-        "pint": "vendor/bin/pint",
-        "test:pest": "vendor/bin/pest --parallel",
-        "test:phpstan": "vendor/bin/phpstan analyse",
-        "test": [
-            "@test:pest",
-            "@test:phpstan"
-        ]
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "composer/package-versions-deprecated": true,
             "pestphp/pest-plugin": true,
             "phpstan/extension-installer": true
         }
@@ -67,10 +67,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Savannabits\\SignaturePad\\SignaturePadServiceProvider"
+                "Coolsam\\SignaturePad\\SignaturePadServiceProvider"
             ],
             "aliases": {
-                "SignaturePad": "Savannabits\\SignaturePad\\Facades\\SignaturePad"
+                "SignaturePad": "Coolsam\\SignaturePad\\Facades\\SignaturePad"
             }
         }
     },
