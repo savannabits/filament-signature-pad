@@ -3,9 +3,9 @@
 namespace Coolsam\SignaturePad\Forms\Components\Fields;
 
 use Coolsam\SignaturePad\Forms\Concerns\HasSignaturePadAttributes;
-use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Concerns;
 use Filament\Forms\Components\Contracts;
+use Filament\Forms\Components\Field;
 use Filament\Support\Concerns\HasExtraAlpineAttributes;
 
 class SignaturePad extends Field implements Contracts\CanBeLengthConstrained, Contracts\HasAffixActions
