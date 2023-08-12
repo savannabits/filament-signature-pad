@@ -1,8 +1,9 @@
 import SignaturePad from "signature_pad";
 
-export default function signaturePad(args) {
+export default function signaturePad(state, args) {
     return {
-        state: args.state,
+        state,
+        ratio: 1,
         disabled: args.disabled,
         dotSize: args.dotSize,
         minWidth: args.minWidth,
@@ -11,72 +12,76 @@ export default function signaturePad(args) {
         penColor: args.penColor,
         signaturePad: null,
         backgroundColor: args.backgroundColor,
+        canvas: null,
         init() {
-            const canva = this.$refs.canvas;
-            if (!canva) {
+            this.canvas = document.getElementById(args.id);
+            if (!this.canvas) {
                 console.error('Canvas is not present')
                 return;
             }
 
-            this.signaturePad = new SignaturePad(this.$refs.canvas, {
-                dotSize: this.dotSize || 2,
-                minWidth: this.minWidth || 1,
-                maxWidth: this.maxWidth || 2.5,
-                minDistance: this.minDistance || 2,
-                penColor: this.penColor || 'rgb(0,0,0)',
+            this.signaturePad = new SignaturePad(this.canvas, {
+                dotSize: this.dotSize               || 2,
+                minWidth: this.minWidth             || 1,
+                maxWidth: this.maxWidth             || 2.5,
+                minDistance: this.minDistance       || 2,
+                penColor: this.penColor             || 'rgb(0,0,0)',
                 backgroundColor: this.backgroundColor || 'rgba(255,255,255,0)'
             });
+            /*if (this.state && this.state.includes('data:image')) {
+                // console.log('Forming signature from existing image:')
+                this.signaturePad.fromDataURL(this.state);
+            }*/
+
             window.addEventListener('resize', e => this.resizeCanvas())
             this.resizeCanvas();
-            if (this.state) {
-                console.log('state present')
-                // pass ratio when loading a saved signature
-                this.signaturePad.fromDataURL(this.state, {ratio: this.ratio});
-            }
+
             this.signaturePad.addEventListener("beginStroke", () => {
-                console.log("Signature started");
+                // console.log("Signature started");
             }, {once: false});
             this.signaturePad.addEventListener("endStroke", (e) => {
-                console.log("End stroke")
+                // console.log("End stroke")
                 this.save();
+                this.resizeCanvas()
             }, {once: false});
 
             this.signaturePad.addEventListener("afterUpdateStroke", () => {
                 // console.log("Signature updated");
             }, {once: false});
         },
-        async toBlob(url) {
-            if (url) {
-                const blob = await (await fetch(url)).blob();
-            }
-        },
         save() {
             this.state = this.signaturePad.toDataURL('image/svg+xml');
+            // this.state = this.signaturePad.toDataURL('image/png');
             // this.state = this.signaturePad.toSVG();
             // this.$dispatch('signature-saved', this.signaturePadId);
             // console.log(this.state);
+            this.resizeCanvas()
         },
         clear() {
             this.signaturePad.clear();
             this.state = null;
+            this.resizeCanvas();
         },
         // The resize canvas function https://github.com/szimek/signature_pad#tips-and-tricks﻿
         resizeCanvas() {
-            const canva = this.$refs.canvas;
+            const canva = this.canvas;
             this.ratio = Math.max(window.devicePixelRatio || 1, 1);
             let dimensions = this.getCanvasOffsetDimensions();
-            console.log(dimensions.width);
-            console.log(dimensions.height);
+            // console.log(dimensions.width);
+            // console.log(dimensions.height);
             canva.width = dimensions.width * this.ratio;
             canva.height = dimensions.height * this.ratio;
             canva.getContext('2d').scale(this.ratio, this.ratio);
-            // this.signaturePad?.fromData(this.signaturePad.toData());
-            this.signaturePad?.clear();
-
+            this.signaturePad.clear();
+            if (this.state) {
+                this.signaturePad.fromDataURL(this.state)
+            } else {
+                this.signaturePad?.fromData(this.signaturePad.toData());
+            }
         },
         getCanvasOffsetDimensions()
         {
-            const canva = this.$refs.canvas;
+            const canva = this.canvas;
             const element = canva.cloneNode(true);
             if (canva.offsetHeight > 0 && canva.offsetWidth > 0) {
                 return {
