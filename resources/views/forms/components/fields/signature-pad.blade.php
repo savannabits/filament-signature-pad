@@ -12,6 +12,7 @@
     $suffixIcon = $getSuffixIcon();
     $suffixLabel = $getSuffixLabel();
     $statePath = $getStatePath();
+    $displayTemplate = $canDisplayTemplate();
 @endphp
 <x-dynamic-component
     :component="$getFieldWrapperView()"
@@ -36,9 +37,11 @@
             id: '{{ $id }}',
         })"
         class="p-2 md:p-4 bg-white dark:bg-gray-500 sm:rounded-md">
-        <template x-if="state">
-            <img class="border mx-auto dark:border-gray-700 rounded-lg w-full max-w-[800px]" alt="current_signature" :src="state">
-        </template>
+        @if($displayTemplate)
+            <template x-if="state">
+                <img class="border mx-auto dark:border-gray-700 rounded-lg w-full max-w-[800px]" alt="current_signature" :src="state">
+            </template>
+        @endif
         @if(!($isReadOnly() || $isDisabled))
             <canvas
                 before="Hello World"
