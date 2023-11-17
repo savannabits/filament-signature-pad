@@ -12,7 +12,7 @@
     $suffixIcon = $getSuffixIcon();
     $suffixLabel = $getSuffixLabel();
     $statePath = $getStatePath();
-    $displayTemplate = $canDisplayTemplate();
+    $displayTemplate = $getDisplayTemplate();
 @endphp
 <x-dynamic-component
     :component="$getFieldWrapperView()"
