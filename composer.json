@@ -1,15 +1,15 @@
 {
-    "name": "coolsam/signature-pad",
+    "name": "bradwarwick/signature-pad",
     "description": "Signature Pad for FilamentPHP",
     "keywords": [
         "coolsam",
         "laravel",
         "signature-pad"
     ],
-    "homepage": "https://github.com/coolsam/signature-pad",
+    "homepage": "https://github.com/bradwarwick/signature-pad",
     "support": {
-        "issues": "https://github.com/coolsam/signature-pad/issues",
-        "source": "https://github.com/coolsam/signature-pad"
+        "issues": "https://github.com/bradwarwick/signature-pad/issues",
+        "source": "https://github.com/bradwarwick/signature-pad"
     },
     "license": "MIT",
     "authors": [
