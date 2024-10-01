@@ -10,7 +10,6 @@ use Filament\Support\Concerns\HasExtraAlpineAttributes;
 
 class SignaturePad extends Field implements Contracts\CanBeLengthConstrained, Contracts\HasAffixActions
 {
-    use HasSignaturePadAttributes;
     use Concerns\CanBeAutocapitalized;
     use Concerns\CanBeAutocompleted;
     use Concerns\CanBeLengthConstrained;
@@ -20,6 +19,7 @@ class SignaturePad extends Field implements Contracts\CanBeLengthConstrained, Co
     use Concerns\HasInputMode;
     use Concerns\HasPlaceholder;
     use HasExtraAlpineAttributes;
+    use HasSignaturePadAttributes;
 
     const PACKAGE_NAME = 'coolsam/signature-pad';
 

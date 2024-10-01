@@ -21,7 +21,7 @@ trait HasSignaturePadAttributes
     protected bool $hideDownloadButtons = false;
 
     /**
-     * @param  bool  $hide = true
+     * @param  bool  $hide  = true
      */
     public function hideDownloadButtons(bool $hide = true): static
     {
