@@ -2,6 +2,7 @@
 
 namespace Coolsam\SignaturePad\Forms\Components\Fields;
 
+use Coolsam\SignaturePad\Forms\Concerns\CanDisplayTemplate;
 use Coolsam\SignaturePad\Forms\Concerns\HasSignaturePadAttributes;
 use Filament\Forms\Components\Concerns;
 use Filament\Forms\Components\Contracts;
@@ -19,6 +20,7 @@ class SignaturePad extends Field implements Contracts\CanBeLengthConstrained, Co
     use Concerns\HasInputMode;
     use Concerns\HasPlaceholder;
     use HasExtraAlpineAttributes;
+    use CanDisplayTemplate;
     use HasSignaturePadAttributes;
 
     const PACKAGE_NAME = 'coolsam/signature-pad';
