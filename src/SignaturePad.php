@@ -2,6 +2,4 @@
 
 namespace Coolsam\SignaturePad;
 
-class SignaturePad extends \Coolsam\SignaturePad\Forms\Components\Fields\SignaturePad
-{
-}
+class SignaturePad extends \Coolsam\SignaturePad\Forms\Components\Fields\SignaturePad {}

@@ -58,9 +58,7 @@ class SignaturePadServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void
-    {
-    }
+    public function packageRegistered(): void {}
 
     public function packageBooted(): void
     {
@@ -88,7 +86,7 @@ class SignaturePadServiceProvider extends PackageServiceProvider
         }
 
         // Testing
-        Testable::mixin(new TestsSignaturePad());
+        Testable::mixin(new TestsSignaturePad);
     }
 
     protected function getAssetPackageName(): ?string
