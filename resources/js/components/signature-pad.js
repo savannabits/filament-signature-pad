@@ -65,6 +65,7 @@ export default function signaturePad(state, args) {
         // The resize canvas function https://github.com/szimek/signature_pad#tips-and-tricks﻿
         resizeCanvas() {
             const canva = this.canvas;
+            let data = this.signaturePad?.toData();
             this.ratio = Math.max(window.devicePixelRatio || 1, 1);
             let dimensions = this.getCanvasOffsetDimensions();
             // console.log(dimensions.width);
@@ -73,10 +74,8 @@ export default function signaturePad(state, args) {
             canva.height = dimensions.height * this.ratio;
             canva.getContext('2d').scale(this.ratio, this.ratio);
             this.signaturePad.clear();
-            if (this.state) {
-                this.signaturePad.fromDataURL(this.state)
-            } else {
-                this.signaturePad?.fromData(this.signaturePad.toData());
+            if (data) {
+                this.signaturePad?.fromData(data);
             }
         },
         getCanvasOffsetDimensions()
